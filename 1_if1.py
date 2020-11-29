@@ -14,13 +14,18 @@
 
 """
 
-age = int(float(input('Введите свой возраст: ')))
 
-def main(age):
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
+
+def main():
+
+    while True:
+        try:
+            age = float(input('Введите свой возраст: '))
+            break
+        except ValueError:
+            print("\nВведите нормальный возраст!\n")
+
+   
     if 3 <= age <= 6:
     	return "Ваше место в детском саду"
     elif 7 <= age <= 17:
@@ -29,11 +34,13 @@ def main(age):
     	return "Ваше место в ВУЗе"
     elif 23 <= age <= 65:
     	return "Ваше место на работе"
+    elif age == 0:
+        return 'С ДР!'
+    elif age < 0:
+        return 'Не бывает отрицательного возраста'
     else:
-    	return "Вы еще не родились, либо слишком малы, либо пора на пенсию"
-
-my_age = main(age)
-print(my_age)
+    	return "Вы слишком малы, либо пора на пенсию"
 
 if __name__ == "__main__":
-    main(age)
+    my_age = main()
+    print(my_age)
